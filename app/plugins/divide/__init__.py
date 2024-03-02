@@ -2,9 +2,9 @@ from decimal import Decimal
 from app.commands import Command
 
 
-class AddCommand(Command):
+class DivideCommand(Command):
     def execute(self):
-        print("\n---------------\nAddition operation (type 'stop' for main menu)\n")
+        print("\n---------------\nDivision operation (type 'stop' for main menu)\n")
         isWorking = True
         while isWorking:  #REPL Read, Evaluate, Print, Loop
             a = input("Enter A:\n>>> ").strip()
@@ -18,11 +18,13 @@ class AddCommand(Command):
                 isWorking = False
                 break
             try:
-                print(f"Result is:\na + b = {a} + {b} = {add(Decimal(a), Decimal(b))}\n---------------\n")
+                print(f"Result is:\na / b = {a} / {b} = {divide(Decimal(a), Decimal(b))}\n---------------\n")
                 isWorking = False
             except Exception as e: # Catch-all for unexpected errors
                 print(f"An error occurred: {e}\n---------------\n")
                 isWorking = False
 
-def add(a: Decimal, b: Decimal) -> Decimal:
-    return a + b
+def divide(a: Decimal, b: Decimal) -> Decimal:
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
