@@ -23,9 +23,8 @@ class App:
     def start(self):
         # Register commands here
         self.load_plugins()
-        print("Type 'exit' to exit.")
         while True:  #REPL Read, Evaluate, Print, Loop
-            self.command_handler.execute_command(input(">>> ").strip())
+            self.command_handler.execute_command(input("Type operation command or type 'menu' for available commands (type 'exit' to exit):\n>>> ").strip())
 
 
 

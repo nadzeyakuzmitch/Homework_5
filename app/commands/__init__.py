@@ -21,7 +21,8 @@ class CommandHandler:
         """
         """Easier to ask for forgiveness than permission (EAFP) - Use when its going to most likely work"""
         try:
+            print(f"{command_name}")
             self.commands[command_name].execute()
         except KeyError:
-            print(f"No such command: {command_name}")
+            print(f"\n---------------\nNo such command: {command_name}\n---------------\n")
 

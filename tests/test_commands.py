@@ -1,6 +1,6 @@
 import pytest
 from app import App
-from app.plugins.greet import GreetCommand
+from app.plugins.add import AddCommand
 
 
 def test_app_greet_command(capfd, monkeypatch):
